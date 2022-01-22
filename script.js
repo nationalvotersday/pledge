@@ -1,5 +1,6 @@
 const {PDFDocument} = PDFLib;
 const input = document.getElementById("name");
+
 async function load() {
         
         if(input.value == '' || input.value == " ") {
@@ -7,7 +8,7 @@ async function load() {
         }
         const value = input.value;
         input.value = "";
-        const url = "https://arjunbchennithala.github.io/test/certificate.pdf";
+        const url = "http://localhost:8080/certificate.pdf";
         const obj = await fetch(url).then(res=>res.arrayBuffer());
         const pdfdoc = await PDFDocument.load(obj);
         const pages = pdfdoc.getPages();
@@ -15,4 +16,7 @@ async function load() {
         pages[0].drawText(value, {size:30});
         const saver = await pdfdoc.save();
         download(saver, "certificate.pdf", "application/pdf");
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "https://independencedayatmycollege.000webhostapp.com/?name=" + value, true);
+        xmlhttp.send();
 }
