@@ -4,7 +4,7 @@ const button = document.getElementsByTagName("button")[0];
 
 async function load() {
         
-        if(!(input.value.match(/^[a-zA-Z]/))) {
+        if(input.value == '' || input.value == " ") {
                 return;
         }
         const value = input.value;
