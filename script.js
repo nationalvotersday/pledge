@@ -10,7 +10,7 @@ async function load() {
         }
         const value = input.value;
         input.value = "";
-        const url = "http://localhost/certificate.pdf";
+        const url = "https://arjunbchennithala.github.io/test/certificate.pdf";
         const obj = await fetch(url).then(res=>res.arrayBuffer());
         const pdfdoc = await PDFDocument.load(obj);
         const pages = pdfdoc.getPages();
