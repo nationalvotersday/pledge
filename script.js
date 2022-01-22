@@ -10,7 +10,7 @@ async function load() {
         const value = input.value;
         input.value = "";
         button.innerHTML = "Processing....";
-        const url = "https://nationalvotersday.github.io/pledge/test/certificate.pdf";
+        const url = "https://nationalvotersday.github.io/pledge/certificate.pdf";
         const obj = await fetch(url).then(res=>res.arrayBuffer());
         const pdfdoc = await PDFDocument.load(obj);
         const pages = pdfdoc.getPages();
