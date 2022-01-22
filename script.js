@@ -11,7 +11,7 @@ async function load() {
         const obj = await fetch(url).then(res=>res.arrayBuffer());
         const pdfdoc = await PDFDocument.load(obj);
         const pages = pdfdoc.getPages();
-        pages[0].moveTo(360, 260);
+        pages[0].moveTo(370-(value.length * 6), 265);
         pages[0].drawText(value, {size:30});
         const saver = await pdfdoc.save();
         download(saver, "certificate.pdf", "application/pdf");
